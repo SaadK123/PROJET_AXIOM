@@ -1,3 +1,3 @@
 public interface IComponent {
-    // only to add types
+    // only to combine types
 }
