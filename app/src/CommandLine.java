@@ -1,3 +1,6 @@
+import java.util.List;
+
 public interface CommandLine {
-    void action(String value);
+    void action(String command);
+
 }

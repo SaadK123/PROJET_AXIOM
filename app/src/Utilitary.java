@@ -1,5 +1,7 @@
 import javax.xml.xpath.XPathEvaluationResult;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Utilitary {
@@ -14,11 +16,10 @@ public class Utilitary {
      * @param parent
      */
     public static  void setObjNull(String nameChild,Obj parent) {
-        if(parent == null) { // on verifie uniquement si le parent est null 
+        if(parent == null) { // on verifie uniquement si le parent est null
             return;
         }
           parent.setComponent(nameChild,null);
-
     }
 
     public static  void changerValeur(String nameValue,Obj parent,Value newValue) {
@@ -27,6 +28,40 @@ public class Utilitary {
         }
         parent.setComponent(nameValue,newValue);
     }
+
+    public static boolean  containsDigit(String s) {
+        return s != null && s.matches("-?.*\\d.*");
+    }
+
+    public static List<String> convertCommandToList(String command) {
+        // this will be converting a command example int number      = 5; into a list without taking type into account
+        int indexCurrSplit = 0;
+        // int number
+        List<String> list = new ArrayList<>();
+        char[] characters = command.toCharArray();
+        for(int i = 0; i < characters.length; ++i) {
+           if(characters[i] == ' '){
+               list.add(command.substring(indexCurrSplit,i));
+               // this will help place ourselves against double spaces
+               for(int e = i+1; e < characters.length; ++e) {
+                   if(characters[e] == ' ') {++i;continue;}
+                   break;
+               }
+               if(i == characters.length-1) {
+                   return list; // return list if after the spacing protection where at last index
+               }
+               indexCurrSplit = i;
+           }
+        }
+        list.add(command.substring(indexCurrSplit));
+
+        return  list;
+    }
+    public static void correctStringFormat(String str) {
+        if(containsDigit(str))
+    }
+
+
 
 
 
