@@ -8,9 +8,7 @@ public class Obj implements  IComponent{
     public Obj(HashMap<String,IComponent> hs) {
      this.hs = hs;
     }
-    public HashMap<String,IComponent> getMap() {
-        return hs;
-    }
+
 
     /**
      * @description
@@ -21,7 +19,14 @@ public class Obj implements  IComponent{
     public  IComponent getComponent(String name) {
         return hs.get(name);
     }
+    public void setComponent(String name,IComponent component) {
+        if(name == null || name.isBlank() || getComponent(name) == null) {
+            return;
+        }
 
+        // saisir le nouveau composant qui peut etre null
+        hs.put(name,component);
+    }
 
 
 }
