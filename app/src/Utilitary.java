@@ -1,6 +1,9 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Utilitary {
 
-    private static   (String value,) {
+    public void modifierUnObjet() {
 
     }
 

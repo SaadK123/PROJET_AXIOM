@@ -14,7 +14,8 @@ public class InitatorModel {
         // LET
         hs.put("let",(value) -> {
             // create object with this value
-        })
+
+        });
     }
 
 }

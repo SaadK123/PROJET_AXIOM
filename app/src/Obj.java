@@ -1,9 +1,16 @@
-public class Obj<T> {
- // create class obj
-    private String value;
+import java.util.HashMap;
 
-    public Obj(T type , String value) {
-        if type.
+public class Obj implements  IComponent{
+ // create class obj
+
+    private HashMap<String,IComponent> hs = new HashMap<>();
+
+    public Obj(HashMap<String,IComponent> hs) {
+     this.hs = hs;
     }
+
+
+
+
 
 }

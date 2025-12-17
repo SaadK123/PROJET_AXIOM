@@ -3,6 +3,11 @@ public enum TypeValeur {
         FLOAT,
         INT,
         STRING,
-        CHAR
+        CHAR;
 
+
+
+        TypeValeur() {
+
+        }
 }
