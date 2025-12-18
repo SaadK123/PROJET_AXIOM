@@ -31,31 +31,38 @@ public class Utilitary {
 
 
 
-    public static List<String> convertCommandToList(String command) {
+    public static List<String> actionConvertion(String command) {
         correctStringFormat(command); // lance une exception si jamais c'est pas bon
-        // this will be converting a command example int number      = 5; into a list without taking type into account
+
+
+        return  convertStringToList(command);
+    }
+
+    private static List<String> convertStringToList(String command) {
         int indexCurrSplit = 0;
         // int number
+        // this will be converting a command example int number= 5;
+        // into a list without taking type into account
         List<String> list = new ArrayList<>();
         char[] characters = command.toCharArray();
         for(int i = 0; i < characters.length; ++i) {
-           if(characters[i] == ' '){
-               list.add(command.substring(indexCurrSplit,i));
-               // this will help place ourselves against double spaces
-               for(int e = i+1; e < characters.length; ++e) {
-                   if(characters[e] == ' ') {++i;continue;}
-                   break;
-               }
-               if(i == characters.length-1) {
-                   return list; // return list if after the spacing protection where at last index
-               }
-               indexCurrSplit = i;
-           }
+            if(characters[i] == ' '){
+                list.add(command.substring(indexCurrSplit,i));
+                // this will help place ourselves against double spaces
+                for(int e = i+1; e < characters.length; ++e) {
+                    if(characters[e] == ' ') {++i;continue;}
+                    break;
+                }
+                if(i == characters.length-1) {
+                    return list; // return list if after the spacing protection where at last index
+                }
+                indexCurrSplit = i;
+            }
         }
         list.add(command.substring(indexCurrSplit));
-
-        return  list;
+        return list;
     }
+
     private static void correctStringFormat(String str) {
         if(str == null || str.isEmpty() || Character.isDigit(str.charAt(0))
                 || str.matches(".*[\\r\\n].*")) {
