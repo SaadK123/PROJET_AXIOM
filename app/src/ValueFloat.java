@@ -14,7 +14,7 @@ public class ValueFloat extends Value{
 
     public boolean CompareTo(Object obj) {
         if(!(obj instanceof Float )) throw new IllegalArgumentException("");
-        return Objects.equals(obj, this.toValue());
+        return Objects.equals(obj,toValue());
     }
 
 

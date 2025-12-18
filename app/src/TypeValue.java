@@ -27,8 +27,8 @@ public enum TypeValue  {
            return switch (type) {
                case DOUBLE -> new ValueDouble(value,type);
                case FLOAT  -> new ValueFloat(value,type);
-               case INT   ->  new ;
-               case STRING -> new;
+               case INT   ->  new ValueInt(value,type);
+               case STRING -> new Va;
                case CHAR -> null;
            };
         }
