@@ -29,11 +29,10 @@ public class Utilitary {
         parent.setComponent(nameValue,newValue);
     }
 
-    public static boolean  containsDigit(String s) {
-        return s != null && s.matches("-?.*\\d.*");
-    }
+
 
     public static List<String> convertCommandToList(String command) {
+        correctStringFormat(command); // lance une exception si jamais c'est pas bon
         // this will be converting a command example int number      = 5; into a list without taking type into account
         int indexCurrSplit = 0;
         // int number
@@ -57,9 +56,16 @@ public class Utilitary {
 
         return  list;
     }
-    public static void correctStringFormat(String str) {
-        if(containsDigit(str))
+    private static void correctStringFormat(String str) {
+        if(str == null || str.isEmpty() || Character.isDigit(str.charAt(0))
+                || str.matches(".*[\\r\\n].*")) {
+            throw new IllegalArgumentException("");
+        }
     }
+
+
+
+
 
 
 
